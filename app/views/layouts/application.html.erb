@@ -6,11 +6,49 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href"#"><%=image_tag "FishLinK_logo.png" %></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li class="nav-item active"><%= link_to 'User', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Article', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Review', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Log out', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+            <% elsif user_signed_in? %>
+              <li class="nav-item active"><%= link_to 'My page', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Favorite', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Log out', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+            <% else %>
+              <li class="nav-item active"><%= link_to 'About', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Article', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Sign up', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Log in', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+            <% end %>
+          </ul><br>
+          <form class="navbar-form">
+            <input id="sbox2"  id="s" name="s" type="text" placeholder="Search"/>
+            <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer class="bg-light">
+    <p class="text-center d-flex align-items-center justify-content-center" style="height: 100px;">© FishLink 2022</p>
+  </footer>
 </html>
