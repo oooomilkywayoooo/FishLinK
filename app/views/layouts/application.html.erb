@@ -31,13 +31,14 @@
             <% else %>
               <li class="nav-item active"><%= link_to 'About', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
               <li class="nav-item"><%= link_to 'Article', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
-              <li class="nav-item"><%= link_to 'Sign up', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
-              <li class="nav-item"><%= link_to 'Log in', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Log in', new_user_session_path, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
             <% end %>
           </ul><br>
-          <form class="navbar-form">
-            <input id="sbox2"  id="s" name="s" type="text" placeholder="Search"/>
-            <button type="submit" id="sbtn2"><i class="fas fa-search"></i></button>
+
+          <form class="form-box">
+            <input class="form-input" type="text" size="25" placeholder="Search">
+            <button class="form-button" type="submit"><i class="fas fa-search"></i></button>
           </form>
         </div>
       </div>
@@ -49,6 +50,6 @@
   </body>
 
   <footer class="bg-light">
-    <p class="text-center d-flex align-items-center justify-content-center" style="height: 100px;">© FishLink 2022</p>
+    <p class="text-center d-flex align-items-center justify-content-center">© FishLink 2022</p>
   </footer>
 </html>

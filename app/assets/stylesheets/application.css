@@ -14,8 +14,79 @@
  *= require_self
  */
 
+ /*検索バーのCSS*/
+.form-box{
+	display: flex;
+	border: 2px solid lightgrey;
+	width: 200px;
+}
+
+.form-input{
+	border: none;
+	width: 100%;
+}
+
+.form-button{
+	background-color: white;
+	border: none;
+}
+/*検索バーCSS終わり*/
+
+#userlogin{
+    border-bottom: solid 5px #66CCCC;
+}
+#usersignup{
+    border-bottom: solid 5px #66CC99;
+}
+
+.userlogin{
+    color: #66CCCC;
+}
+
+.usersignup{
+    color: #66CC99;
+}
+
+.userlogin-btn{
+    background-color: #66CCCC;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-color: #66CCCC;
+    border-radius: 10px;
+}
+
+.usersignup-btn{
+    background-color: #66CC99;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-color: #66CC99;
+    border-radius: 10px;
+}
+
+.sex{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.wrapper{
+    min-height: 100vh;
+    position: relative;/*←相対位置*/
+    padding-bottom: 100px;/*←footerの高さ*/
+    box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
 footer{
     width: 100%;
+    color: black;
+    text-align: center;
+    padding: 30px 0;
     position: absolute;/*←絶対位置*/
     bottom: 0; /*下に固定*/
 }
