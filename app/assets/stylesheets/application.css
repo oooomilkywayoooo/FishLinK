@@ -82,6 +82,8 @@ body {
     box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
 }
 
+
+
 footer{
     width: 100%;
     color: black;
