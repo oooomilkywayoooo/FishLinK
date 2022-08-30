@@ -13,4 +13,11 @@ Rails.application.routes.draw do
 
   get '/' => 'public/homes#top'
   get '/about' => 'public/homes#about'
+  resources :posts
+  resources :users, only: [:show, :edit, :update] do
+    collection do
+      get '/quit' => 'users#quit'
+      patch '/out' => 'users#out'
+    end
+  end
 end
