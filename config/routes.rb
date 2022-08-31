@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
 
   devise_for :admin,skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -13,11 +17,25 @@ Rails.application.routes.draw do
 
   get '/' => 'public/homes#top'
   get '/about' => 'public/homes#about'
-  resources :posts
-  resources :users, only: [:show, :edit, :update] do
-    collection do
-      get '/quit' => 'users#quit'
-      patch '/out' => 'users#out'
+
+  scope module: :public do
+    resources :reviews, only: [:index, :new, :create, :show, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
+    resources :posts do
+      resources :comments, only: [:create, :destroy]
+      resource :goods, only: [:create, :destroy]
     end
+    resources :users, only: [:show, :edit, :update] do
+      collection do
+        get '/quit' => 'users#quit'
+        patch '/out' => 'users#out'
+      end
+    end
+  end
+
+  namespace :admin do
+    resources :posts, only: [:index, :show, :destroy]
+    resources :reviews, only: [:index, :show, :destroy]
+    resources :users, only: [:index, :show, :update]
   end
 end

@@ -25,9 +25,9 @@
               <li class="nav-item"><%= link_to 'Review', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
               <li class="nav-item"><%= link_to 'Log out', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
             <% elsif user_signed_in? %>
-              <li class="nav-item active"><%= link_to 'My page', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item active"><%= link_to 'My page', user_path(current_user), class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
               <li class="nav-item"><%= link_to 'Favorite', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
-              <li class="nav-item"><%= link_to 'Log out', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
             <% else %>
               <li class="nav-item active"><%= link_to 'About', "/about", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
               <li class="nav-item"><%= link_to 'Article', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
@@ -46,7 +46,9 @@
   </header>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
   </body>
 
   <footer class="bg-light">

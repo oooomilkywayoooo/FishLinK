@@ -1,2 +1,12 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>My page</h1>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.get_profile_image(100,100) %>
+      <% else %>
+        <%= image_tag 'no_image', size: "100x100" %>
+      <% end %>
+    </div>
+  </div>
+</div>

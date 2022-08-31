@@ -25,5 +25,8 @@
         <%= f.submit "Log in", class: "userlogin-btn px-4 py-3" %>
       </div>
     <% end %>
+    <div class="text-right mt-5">
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+    </div>
   </div>
 </div>
