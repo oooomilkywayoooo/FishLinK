@@ -1,11 +1,16 @@
 <div class="container mx-auto">
   <div class="row">
     <div class="col-md-3">
-      <h1>My page</h1>
+      <h2 class="user mt-5 pb-2">My page</h2>
       <% if @user.profile_image.attached? %>
-        <%= image_tag @user.get_profile_image(100,100) %>
+        <%= image_tag @user.get_profile_image(150,150), class: "userimage mt-5" %>
       <% else %>
-        <%= image_tag 'no_image', size: "100x100" %>
+        <%= image_tag 'no_image', size: "150x150", class: "userimage mt-5" %>
+      <% end %>
+      <h5 class="nickname mt-3">Nick Name　　　<%= current_user.nickname %></h5>
+
+      <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block user-btn" do %>
+        <i class="fas fa-user-cog"></i>
       <% end %>
     </div>
   </div>
