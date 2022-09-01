@@ -1,2 +1,23 @@
-<h1>Public::Users#edit</h1>
-<p>Find me in app/views/public/users/edit.html.erb</p>
+<div class="container" style="width:600px;">
+  <div id="useredit">
+    <h2 class="useredit mt-5">Edit</h2>
+  </div>
+
+  <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f|%>
+  <div class="field mt-5 mx-auto" style="width:400px;">
+    <span class="useredit"><%= f.label :"ニックネーム" %></span><br />
+    <%= f.text_field :nickname, class: "form-control" %>
+  </div>
+
+  <div class="field mt-5 mx-auto" style="width:400px;">
+  <div class="field mt-5 mx-auto" style="width:400px;">
+    <span class="useredit"><%= f.label :"User Image" %></span><br />
+    <%= f.file_field :plofile_image %>
+  </div>
+
+  <div class="actions mt-5 mx-auto text-center" style="width:400px;">
+    <%= f.submit "Update", class: "useredit-btn px-4 py-3 mb-5" %>
+  </div>
+  <% end %>
+</div>
+
