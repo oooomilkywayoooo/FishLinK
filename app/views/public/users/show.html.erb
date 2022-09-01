@@ -7,11 +7,59 @@
       <% else %>
         <%= image_tag 'no_image', size: "150x150", class: "userimage mt-5" %>
       <% end %>
-      <h5 class="nickname mt-3">Nick Name　　　<%= current_user.nickname %></h5>
+      <table class="table">
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>Nick Name</th>
+            <th><%= current_user.nickname %></th>
+          </tr>
+        </tbody>
+      </table>
 
-      <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block user-btn" do %>
-        <i class="fas fa-user-cog"></i>
-      <% end %>
+      <%= link_to 'Edit', edit_user_path(current_user), class: "btn btn-outline-secondary btn-block mt-5" %>
+
+      <%= link_to 'New Article', new_post_path, class: "btn btn-outline-secondary btn-block mt-3" %>
+
+      <%= link_to 'New Review', new_review_path, class: "btn btn-outline-secondary btn-block mt-3" %>
+    </div>
+
+    <div class="col-md-9">
+      <h2 class="user mt-5 pb-2">Article List</h2>
+      <% current_user.posts.each do |post|%>
+      <div class="card d-flex flex-wrap" style="width: 280px;">
+        <%= link_to image_tag post.postimage %>
+        <div class="card-body">
+          <%= post.title %></br>
+          <%= post.comment %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-7">
+      <h2 class="user mt-5 pb-2">Review List</h2>
+      <div class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Star</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% current_user.reviews.each do |review|%>
+        <tbody>
+          <tr>
+            <td><%= review.title %></td>
+            <td><%= review.star %></td>
+            <td><%= link_to 'Show', review_path(review), class: "btn btn-outline-primary" %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
