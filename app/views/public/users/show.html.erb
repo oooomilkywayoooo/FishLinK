@@ -3,7 +3,7 @@
     <div class="col-md-3">
       <h2 class="user mt-5 pb-2">My page</h2>
       <% if @user.profile_image.attached? %>
-        <%= image_tag @user.get_profile_image(150,150), class: "userimage mt-5" %>
+        <%= image_tag @user.profile_image, size: "150x150", class: "userimage mt-5" %>
       <% else %>
         <%= image_tag 'no_image', size: "150x150", class: "userimage mt-5" %>
       <% end %>
@@ -17,11 +17,13 @@
         </tbody>
       </table>
 
-      <%= link_to 'Edit', edit_user_path(current_user), class: "btn btn-outline-secondary btn-block mt-5" %>
+      <% if @user.id == current_user.id %>
+        <%= link_to 'Edit', edit_user_path(current_user), class: "btn btn-outline-secondary btn-block mt-5" %>
 
-      <%= link_to 'New Article', new_post_path, class: "btn btn-outline-secondary btn-block mt-3" %>
+        <%= link_to 'New Article', new_post_path, class: "btn btn-outline-secondary btn-block mt-3" %>
 
-      <%= link_to 'New Review', new_review_path, class: "btn btn-outline-secondary btn-block mt-3" %>
+        <%= link_to 'New Review', new_review_path, class: "btn btn-outline-secondary btn-block mt-3" %>
+      <% end %>
     </div>
 
     <div class="col-md-9">
