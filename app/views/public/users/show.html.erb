@@ -28,7 +28,7 @@
 
     <div class="col-md-9">
       <h2 class="user mt-5 pb-2">Article List</h2>
-      <% current_user.posts.each do |post|%>
+      <% @posts.each do |post|%>
       <div class="card d-flex flex-wrap" style="width: 280px;">
         <%= link_to image_tag post.postimage %>
         <div class="card-body">
@@ -52,7 +52,7 @@
             <th></th>
           </tr>
         </thead>
-        <% current_user.reviews.each do |review|%>
+        <% @reviews.each do |review|%>
         <tbody>
           <tr>
             <td><%= review.title %></td>
