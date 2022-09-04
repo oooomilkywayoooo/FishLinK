@@ -7,7 +7,7 @@
         <% else %>
           <%= image_tag 'no_image', size: "150x150", class: "userradius mt-5" %>
         <% end %>
-        <p class="d-flex align-items-end"><strong><%= @post.user.nickname %></strong></p>
+        <p class="h5 d-flex align-items-end"><strong><%= @post.user.nickname %></strong></p>
       </div>
     </div>
     <div class="col-md-6"></div>
@@ -18,11 +18,11 @@
 
   <div class="row">
     <div class="col-md-7 mt-5">
-      <%= image_tag @post.postimage %>
+      <%= image_tag @post.postimage, size: "500x300" %>
     </div>
     <div class="col-md-5 mt-5">
-      <p class="h2 text-center"><%= @post.title %></p>
-      <p class="h4 mt-5"><%= @post.body %></p>
+      <p class="h3 text-center"><%= @post.title %></p>
+      <p class="h5 mt-5"><%= @post.body %></p>
     </div>
   </div>
 
@@ -34,4 +34,67 @@
       <p class="ml-3"><i class="fa-solid fa-thumbs-up"></i><%= @goods_count %></p>
     </div>
   </div>
+
+  <% if @post.user_id == current_user.id %>
+  <div class="row">
+    <div class="col-md-12 my-3 text-right">
+      <h5><%= link_to "Edit", edit_post_path(@post.id)%> / <%= link_to "Delete", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></h5>
+    </div>
+  </div>
+  <% end %>
+
+  <% @comments.each do |comment| %>
+    <% if comment.id == current_user.id %>
+      <div class="row justify-content-center">
+        <div class="col-md-2 text-center">
+          <% if comment.user.profile_image.attached? %>
+            <%= image_tag comment.user.profile_image, size: "100x100", class: "userradius" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "100x100", class: "userradius" %>
+          <% end %>
+          <p class="h6"><strong><%= comment.user.nickname %></strong></p>
+        </div>
+        <div class="col-md-8">
+          <div class="odd mb-3">
+            <p><%= comment.comment %></p>
+            <span><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
+            <% if comment.user == current_user %>
+              <p class="text-right"><%= link_to "delete", post_comment_path(@post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="even mb-3">
+          <p><%= comment.comment %></p>
+          <span><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
+          <% if comment.user == current_user %>
+            <p class="text-right"><%= link_to "delete", post_comment_path(@post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <% if comment.user.profile_image.attached? %>
+          <%= image_tag comment.user.profile_image, size: "100x100", class: "userradius" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "100x100", class: "userradius" %>
+        <% end %>
+        <p class="h6"><strong><%= comment.user.nickname %></strong></p>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+
+  <%= form_with model: [@post, @comment] do |f| %>
+    <div class="field mt-5 mx-auto" style="width:600px;">
+      <%= f.text_area :comment, class: "form-control", rows: "5", placeholder: "コメントを書いてください。" %>
+    </div>
+
+    <div class="actions mt-5 mx-auto text-center" style="width:600px;">
+      <%= f.button :type => "submit", class: "comment-btn px-5 py-3 mb-5", style: 'border-style: none;' do %>
+        <i class="fa-solid fa-comment-dots"></i>
+      <% end %>
+  <% end %>
 </div>

@@ -12,13 +12,68 @@
 
 .article-btn{
   background-color: #28a745;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-color: #28a745;
-    border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-color: #28a745;
+  border-radius: 10px;
+}
+
+.comment-btn{
+  background-color: lightblue;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-color: #28a745;
+  border-radius: 10px;
 }
 
 .userradius{
   border-radius: 50%;
+}
+
+// 奇数のコメント吹き出し
+.odd {
+  float: left;
+  position: relative;
+  width: calc(100% - 56px);
+  padding: 16px;
+  background: #999999;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.odd:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #999999;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+// 偶数のコメント吹き出し
+.even {
+  float: right;
+  position: relative;
+  width: calc(100% - 56px);
+  padding: 16px;
+  background: #999999;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.even:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #999999;
+  -webkit-transform: rotate(145deg);
+  transform: rotate(145deg);
 }
