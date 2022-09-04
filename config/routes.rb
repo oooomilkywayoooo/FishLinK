@@ -20,16 +20,18 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :reviews, only: [:index, :new, :create, :show, :destroy]
-    resources :favorites, only: [:index, :create, :destroy]
+    resources :favorites, only: [:index]
     resources :posts do
       resources :comments, only: [:create, :destroy]
       resource :goods, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update] do
       collection do
         get '/quit' => 'users#quit'
         patch '/out' => 'users#out'
       end
+      resource :favorites, only: [:create, :destroy]
     end
   end
 

@@ -19,9 +19,11 @@
       <span class="article"><%= f.label :"Body" %></span><br />
       <%= f.text_area :body, class: "form-control", rows: "5" %>
     </div>
-    
+
     <div class="actions mt-5 mx-auto text-center" style="width:400px;">
-      <%= f.submit "投稿", class: "article-btn px-4 py-3 mb-5" %>
+      <%= f.button :type => "submit", class: "article-btn px-5 py-3 mb-5", style: 'border-style: none;' do %>
+       <i class="fa-solid fa-file-pen"></i>
+      <% end %>
     </div>
     <% end %>
   </div>
