@@ -4,4 +4,8 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :goods, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+  def gooded?(user)
+   goods.where(user_id: user.id).exists?
+  end
 end
