@@ -30,8 +30,8 @@
     <div class="col-md-9"></div>
     <div class="col-md-3 d-flex">
 
-      <p><i class="fa-solid fa-comment-dots"></i><%= @comments_count %></p>
-      <p class="ml-3"><i class="fa-solid fa-thumbs-up"></i><%= @goods_count %></p>
+      <p><i class="fa-solid fa-comment-dots"></i><%= @post.comments.count %></p>
+      <p class="ml-3"><i class="fa-solid fa-thumbs-up"></i><%= @post.goods.count %></p>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
   <% end %>
 
   <% @comments.each do |comment| %>
-    <% if comment.id == current_user.id %>
+    <% if comment.user.id == current_user.id %>
       <div class="row justify-content-center">
         <div class="col-md-2 text-center">
           <% if comment.user.profile_image.attached? %>

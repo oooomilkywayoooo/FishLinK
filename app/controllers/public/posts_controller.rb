@@ -34,8 +34,6 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(post_id: @post.id)
-    @comments_count = Comment.where(post_id: @post.id).count
-    @goods_count = Good.where(post_id: @post.id).count
   end
 
   private

@@ -1,2 +1,30 @@
-<h1>Public::Posts#edit</h1>
-<p>Find me in app/views/public/posts/edit.html.erb</p>
+<div class="wrapper">
+  <div class="container" style="width:600px;">
+    <div id="article">
+      <h2 class="text-success mt-5">Edit Article</h2>
+    </div>
+
+    <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
+    <div class="field mt-5 mx-auto" style="width:400px;">
+      <span class="article"><%= f.label :"Image" %></span><br />
+      <%= f.file_field :postimage, accept: "image/*" %>
+    </div>
+
+    <div class="field mt-5 mx-auto" style="width:400px;">
+      <span class="article"><%= f.label :"Title" %></span><br />
+      <%= f.text_field :title, class: "form-control" %>
+    </div>
+
+    <div class="field mt-5 mx-auto" style="width:400px;">
+      <span class="article"><%= f.label :"Body" %></span><br />
+      <%= f.text_area :body, class: "form-control", rows: "5" %>
+    </div>
+
+    <div class="actions mt-5 mx-auto text-center" style="width:400px;">
+      <%= f.button :type => "submit", class: "article-btn px-5 py-3 mb-5", style: 'border-style: none;' do %>
+       <i class="fa-solid fa-file-pen"></i>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
