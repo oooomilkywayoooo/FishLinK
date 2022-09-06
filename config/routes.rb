@@ -31,7 +31,6 @@ Rails.application.routes.draw do
         get '/quit' => 'users#quit'
         patch '/out' => 'users#out'
       end
-      resource :favorites, only: [:create, :destroy]
     end
   end
 

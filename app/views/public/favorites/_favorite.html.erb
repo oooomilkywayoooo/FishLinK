@@ -1,0 +1,8 @@
+<% if !Like.exists?(user_id: current_user.id, post_id: post.id) %>
+  <%= link_to post_favoritess_path(post.id), method: :post, remote: true, class:"favorite-btn" do %>
+    <i class="fa-regular fa-heart"></i>
+  <% end %>
+    <span class="heart-count1"><%= post.favorites.count %></span>
+  <% else %>
+  
+<% end %>

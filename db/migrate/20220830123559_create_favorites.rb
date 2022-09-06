@@ -5,6 +5,8 @@ class CreateFavorites < ActiveRecord::Migration[6.1]
       t.integer :post_id
 
       t.timestamps
+      # 同じユーザーが同じ投稿をお気に入りできないようにする
+      t.index [:user_id, :post_id], unique: true
     end
   end
 end
