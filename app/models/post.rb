@@ -8,4 +8,8 @@ class Post < ApplicationRecord
   def gooded?(user)
    goods.where(user_id: user.id).exists?
   end
+
+  def already_favorited?(user) #引数を受け取るように設定
+    favorites.where(user_id: user.id).exists?
+  end
 end

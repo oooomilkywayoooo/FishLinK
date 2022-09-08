@@ -45,15 +45,13 @@
       <% end %>
       <div class='heart-btn ml-3' id="favorite_<%= @post.id %>">
         <% if !Favorite.exists?(user_id: current_user.id, post_id: @post.id) %>
-          <%= link_to post_favorites_path(@post.id), method: :post, remote: true, class:"favorite-btn" do %>
+          <%= link_to post_favorites_path(@post), method: :post, class:"favorite-btn" do %>
             <i class="fa-regular fa-heart"></i>
           <% end %>
-          <span class="heart-count1"><%= @post.favorites.count %></span>
         <% else %>
-          <%= link_to post_favorites_path(post_id: @post.id, id: @post.favorites[0].id), method: :delete, remote: true, class:"favorite-btn" do %>
+          <%= link_to post_favorites_path(@post), method: :delete, class:"favorite-btn" do %>
             <i class="fa-solid fa-heart"></i>
           <% end %>
-          <span class="heart-count2"><%= @post.favorites.count %></span>
         <% end %>
       </div>
     </div>
