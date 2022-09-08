@@ -20,7 +20,9 @@
                 <% else %>
                   <%= image_tag 'no_image', size: "50x50", class: "userradius" %>
                 <% end %>
-                <span class="ml-5"><%= post.user.nickname%></span>
+                <span class="ml-5">
+                  <%= link_to post.user.nickname, user_path(post.user_id) %>
+                  </span>
               </td>
               <td><%= post.title %></td>
               <td class="text-right"><%= link_to "Show", post_path(post), class: "btn btn-secondary" %></td>

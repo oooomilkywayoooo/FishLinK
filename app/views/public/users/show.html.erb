@@ -1,7 +1,12 @@
 <div class="container mx-auto">
   <div class="row">
     <div class="col-md-3">
-      <h2 class="user mt-5 pb-2">My page</h2>
+      <% if @user == current_user %>
+        <h2 class="user mt-5 pb-2">My page</h2>
+      <% else %>
+        <h2 class="user mt-5 pb-2">User page</h2>
+      <% end %>
+
       <% if @user.profile_image.attached? %>
         <%= image_tag @user.profile_image, size: "150x150", class: "userimage mt-5" %>
       <% else %>
@@ -12,12 +17,12 @@
           <tr></tr>
           <tr>
             <th>Nick Name</th>
-            <th><%= current_user.nickname %></th>
+            <th><%= @user.nickname %></th>
           </tr>
         </tbody>
       </table>
 
-      <% if @user.id == current_user.id %>
+      <% if @user == current_user %>
         <%= link_to 'Edit', edit_user_path(current_user), class: "btn btn-outline-secondary btn-block mt-5" %>
 
         <%= link_to 'New Article', new_post_path, class: "btn btn-outline-secondary btn-block mt-3" %>

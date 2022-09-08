@@ -31,7 +31,7 @@
       <div class="field mt-5 mx-auto" style="width:400px;">
         <span class="usersignup"><%= f.label :パスワード %></span>
         <% if @minimum_password_length %>
-        <em class="usersignup">(<%= @minimum_password_length %> 文字以内)</em>
+        <em class="usersignup">(<%= @minimum_password_length %> 文字以上)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
       </div>
