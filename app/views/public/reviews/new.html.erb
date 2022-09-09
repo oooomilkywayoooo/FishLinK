@@ -4,6 +4,8 @@
       <h2 class="text-primary mt-5">NEW Review</h2>
     </div>
 
+    <%= render 'layouts/error_messages', model: @review %>
+
     <%= form_with model: @review do |f| %>
     <div class="field mt-5 mx-auto" style="width:400px;">
       <span class="review"><%= f.label :"Image" %></span><br />
@@ -18,22 +20,6 @@
     <div class="field mt-5 mx-auto" style="width:400px;">
       <span class="review"><%= f.label :"Item Name" %></span><br />
       <%= f.text_field :item, class: "form-control" %>
-    </div>
-
-    <div class="field mt-5 mx-auto" style="width:400px;" id="star">
-      <span class="review"><%= f.label :star, "Star" %></span><br />
-      <%= f.hidden_field :star, id: :review_star %>
-
-      <script>
-        $('#star').raty({
-        size     : 36,
-        starOff:  '<%= asset_path('star-off.png') %>',
-        starOn : '<%= asset_path('star-on.png') %>',
-        starHalf: '<%= asset_path('star-half.png') %>',
-        scoreName: 'review[star]',   # starカラムへの保存
-        half: true,   # 星半分の入力
-        });
-      </script>
     </div>
 
     <div class="field mt-5 mx-auto" style="width:400px;">
