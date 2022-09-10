@@ -3,8 +3,9 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts.all
-    @reviews = @user.reviews.all
+    @posts = @user.posts.all.page(params[:posts_page]).per(6)
+    @reviews = @user.reviews.all.page(params[:reviews_page]).per(10)
+    
   end
 
   def edit

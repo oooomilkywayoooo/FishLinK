@@ -35,7 +35,7 @@
       <h2 class="user mt-5 pb-2">Article List</h2>
       <div class="flexbox mx-auto">
         <% @posts.each do |post| %>
-        <div class="card ml-3" style="width: 250px;">
+        <div class="card ml-3 mt-2" style="width: 250px;">
           <%= image_tag post.postimage, size: "250x150" %>
           <div class="card-body">
             <%= link_to post.title, post_path(post) %>
@@ -48,19 +48,20 @@
         </div>
         <% end %>
       </div>
+      <%= paginate @posts, param_name: 'posts_page' %>
     </div>
   </div>
-</div>
+
 
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-7">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
       <h2 class="user mt-5 pb-2">Review List</h2>
-      <div class="table">
+      <table class="table">
         <thead>
           <tr>
             <th>Title</th>
-            <th>Star</th>
+            <th>Item</th>
             <th></th>
           </tr>
         </thead>
@@ -68,12 +69,13 @@
         <tbody>
           <tr>
             <td><%= review.title %></td>
-            <td><%= review.star %></td>
-            <td><%= link_to 'Show', review_path(review), class: "btn btn-outline-primary" %></td>
+            <td><%= review.item %></td>
+            <td class="text-right"><%= link_to 'Show', review_path(review), class: "btn btn-outline-primary" %></td>
           </tr>
         </tbody>
         <% end %>
-      </div>
+      </table>
+      <%= paginate @reviews, param_name: 'reviews_page' %>
     </div>
   </div>
 </div>
