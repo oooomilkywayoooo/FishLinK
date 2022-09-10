@@ -1,5 +1,5 @@
 class Public::ReviewsController < ApplicationController
-  
+
   def new
     @review = Review.new
   end
@@ -16,6 +16,12 @@ class Public::ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
+  end
+
+  def destroy
+    review = Review.find(params[:id])
+    review.destroy
+    redirect_to user_path(review.user_id)
   end
 
   private
