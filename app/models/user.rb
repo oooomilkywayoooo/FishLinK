@@ -13,6 +13,10 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, presence: true
 
+  def active_for_authentication?
+    super && (is_active == true)
+  end
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

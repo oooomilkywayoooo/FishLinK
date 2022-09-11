@@ -4,7 +4,7 @@
       <h2 class="text-primary mt-5">NEW Review</h2>
     </div>
 
-    <%= render 'layouts/error_messages', model: @review %>
+    <%= render 'layouts/error_messages', :object => @review %>
 
     <%= form_with model: @review do |f| %>
     <div class="field mt-5 mx-auto" style="width:400px;">

@@ -3,6 +3,7 @@
     <div id="article">
       <h2 class="text-success mt-5">NEW Article</h2>
     </div>
+    <%= render 'layouts/error_messages', :object => @post %>
 
     <%= form_with model: @post do |f| %>
     <div class="field mt-5 mx-auto" style="width:400px;">
