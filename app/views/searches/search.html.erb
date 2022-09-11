@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+      <h2>Results index</h2>
+
+      <table class="table table-hover table-inverse">
+        <!--検索対象モデルがUserの時 -->
+        <% if @range == "User" %>
+          <thead>
+            <tr>
+              <th></th>
+              <th>ニックネーム</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td>
+                  <% if user.profile_image.attached? %>
+                    <%= image_tag user.profile_image, size: "50x50" %>
+                  <% else %>
+                    <%= image_tag 'no_image', size: "50x50" %>
+                  <% end %>
+                </td>
+                <td class="align-middle"><%= user.nickname %></td>
+                <td class="text-center"><%= link_to 'Show', user_path(user), class: "btn btn-outline-primary" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        <% else %>
+          <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Body</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
+              <tr>
+                <td><%= post.title %></td>
+                <td><%= post.body %></td>
+                <td class="text-center"><%= link_to 'Show', post_path(post), class: "btn btn-outline-primary" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

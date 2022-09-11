@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/' => 'public/homes#top'
   get '/about' => 'public/homes#about'
+  get 'search' => 'searches#search'
 
   scope module: :public do
     resources :reviews, only: [:index, :new, :create, :show, :destroy]

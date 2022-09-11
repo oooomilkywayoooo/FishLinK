@@ -29,14 +29,16 @@
     </div>
   </div>
 
-  <div class="row mt-5">
+  <div class="row mt-5 mb-3">
     <div class="col-md-10 mx-auto review_text">
       <h6><%= @review.body %></h6>
     </div>
   </div>
 
-  <div class="row mt-3">
+  <% if @review.user == current_user %>
+  <div class="row">
     <div class="col-md-12 text-right">
       <%= link_to "Delete", review_path(@review.id), method: :delete, class: "btn btn-secondary", "data-confirm" => "本当に削除しますか？" %>
     </div>
   </div>
+  <% end %>
