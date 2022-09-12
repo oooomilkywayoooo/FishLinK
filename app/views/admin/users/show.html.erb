@@ -1,0 +1,14 @@
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-10 mx-auto mt-5">
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image, size: "150x150", class: "userradius" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "150x150", class: "userradius" %>
+      <% end %>
+
+      <h4 class="d-inline align-bottom ml-2"><%= @user.nickname %></h4>
+      <h4 class="d-inline align-bottom text-right">登録日　　<%= @user.%></h4>
+    </div>
+  </div>
+</div>
