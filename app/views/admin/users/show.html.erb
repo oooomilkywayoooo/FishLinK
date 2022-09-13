@@ -1,5 +1,8 @@
 <div class="container mx-auto">
   <div class="row">
+
+    <%= render 'layouts/error_messages', :object => @user %>
+
     <div class="col-md-10 mx-auto mt-5">
       <% if @user.profile_image.attached? %>
         <%= image_tag @user.profile_image, size: "150x150", class: "userradius" %>
@@ -8,7 +11,50 @@
       <% end %>
 
       <h4 class="d-inline align-bottom ml-2"><%= @user.nickname %></h4>
-      <h4 class="d-inline align-bottom text-right">登録日　　<%= @user.%></h4>
+      <h5 class="text-right">登録日　<%= @user.created_at.strftime('%Y/%m/%d') %></h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-5">
+      <div class="d-flex">
+        <h5>生年月日</h5>
+        <h5 class="ml-5">　<%= @user.birthdate.strftime('%Y/%m/%d') %></h5>
+      </div>
+
+      <div class="d-flex mt-3">
+        <h5>性別　　</h5>
+        <h5 class="ml-5">　<%= @user.sex %></h5>
+      </div>
+
+      <div class="d-flex mt-3">
+        <h5>ステータス</h5>
+        <h5 class="ml-5">
+          <% if @user.is_active == true %>
+            <span class="text-success">利用中</span>
+          <% else %>
+            <span class="text-danger">利用停止</span>
+          <% end %>
+        </h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-5">
+      <h5>ステータス変更</h5>
+      <%= form_with model: @user, url: admin_user_path(@user.id) do |f| %>
+        <h5 class="ml-4 mt-3">
+          <%= f.radio_button :is_active, true%>
+          <%= f.label :is_active, "利用中", value: true, class: "text-success" %>
+        </h5>
+
+        <h5 class="ml-4 mt-3">
+          <%= f.radio_button :is_active, false%>
+          <%= f.label :is_active, "利用停止", value: false, class: "text-danger" %>
+        </h5>
+          <div class="text-center my-5"><%= f.submit "変更", class: "btn btn-outline-secondary" %></div>
+      <% end %>
     </div>
   </div>
 </div>
