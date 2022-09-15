@@ -32,6 +32,11 @@
 }
 /*検索バーCSS終わり*/
 
+header{
+    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+    background-color: lightblue;
+}
+
 #userlogin{
     border-bottom: solid 5px #66CCCC;
 }
@@ -70,9 +75,10 @@
     padding-right: 50px;
 }
 body {
-  margin: 0;
-  padding: 0;
-  position: relative;
+    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 .wrapper{
@@ -85,8 +91,9 @@ body {
 
 
 footer{
+    background-color: lightblue;
     width: 100%;
-    color: black;
+    color: white;
     text-align: center;
     padding: 30px 0;
     position: absolute;/*←絶対位置*/
