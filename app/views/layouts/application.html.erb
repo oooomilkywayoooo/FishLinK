@@ -22,8 +22,8 @@
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
               <li class="nav-item active"><%= link_to 'User', admin_users_path, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
-              <li class="nav-item"><%= link_to 'Article', '#', class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
-              <li class="nav-item"><%= link_to 'Review', "#", class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Article', admin_posts_path, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
+              <li class="nav-item"><%= link_to 'Review', admin_reviews_path, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
               <li class="nav-item"><%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>
             <% elsif user_signed_in? %>
               <li class="nav-item active"><%= link_to 'My page', user_path(current_user), class: 'mr-5 px-3 nav-link text-light btn btn-secondary' %></li>

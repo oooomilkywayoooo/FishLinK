@@ -1,0 +1,26 @@
+<div class="container mx-auto">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h1 class="user mt-5">Review List</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th>Title</th>
+            <th></th>
+          </tr>
+        </thead>
+        <% @reviews.each do |review| %>
+        <tbody>
+          <tr>
+            <td><%= review.user.nickname %></td>
+            <td><%= review.title %></td>
+            <td class="text-center"><%= link_to "Show", admin_review_path(review), class: "btn btn-outline-secondary" %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+

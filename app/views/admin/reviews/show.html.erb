@@ -25,9 +25,7 @@
 
   <div class="row mt-5">
     <div class="col-md-3">
-      <h5 class="review_title text-center">
-        <i class="fa-solid fa-fish"></i>　<%= @review.title %>
-      </h5>
+      <h5 class="review_title text-center"><i class="fa-solid fa-fish"></i>　<%= @review.title %></h5>
     </div>
   </div>
 
@@ -37,11 +35,9 @@
     </div>
   </div>
 
-  <% if @review.user == current_user %>
   <div class="row">
     <div class="col-md-12 text-right">
-      <%= link_to "Delete", review_path(@review.id), method: :delete, class: "btn btn-secondary", "data-confirm" => "本当に削除しますか？" %>
+      <%= link_to "Delete", admin_review_path(@review.id), method: :delete, class: "btn btn-secondary", "data-confirm" => "本当に削除しますか？" %>
     </div>
   </div>
-  <% end %>
 </div>
