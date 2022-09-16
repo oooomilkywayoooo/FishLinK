@@ -15,6 +15,7 @@
  */
 
  /*検索バーのCSS*/
+
 .form-box{
 	display: flex;
 	border: 2px solid lightgrey;
@@ -32,8 +33,14 @@
 }
 /*検索バーCSS終わり*/
 
+@font-face {
+  font-family: "Ronde";
+  font-style: normal;
+  src: asset_url('Ronde-B_square.otf');
+}
+
 header{
-    font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
+    font-family: 'Ronde';
     background-color: lightblue;
 }
 
@@ -76,13 +83,14 @@ header{
 }
 
 body {
-    font-family: JNRfont;
+    font-family: 'Ronde';
     margin: 0;
     padding: 0;
     position: relative;
 }
 
 .wrapper{
+    font-family: 'Ronde';
     min-height: 100vh;
     position: relative;/*←相対位置*/
     padding-bottom: 100px;/*←footerの高さ*/
