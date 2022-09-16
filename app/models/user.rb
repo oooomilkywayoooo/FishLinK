@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :nickname, presence: true
+  validates :nickname, presence: true, length: { maximum: 40 },obscenity: { message: 'はNGワードになっています' }
   validates :email, presence: true
 
   def active_for_authentication?
