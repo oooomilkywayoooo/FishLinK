@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_09_084144) do
+ActiveRecord::Schema.define(version: 2022_09_19_104403) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -65,17 +65,12 @@ ActiveRecord::Schema.define(version: 2022_09_09_084144) do
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
   end
 
   create_table "goods", force: :cascade do |t|
     t.integer "post_id"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "item", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -90,10 +85,16 @@ ActiveRecord::Schema.define(version: 2022_09_09_084144) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
+    t.string "item"
     t.string "title"
     t.text "body"
-    t.string "item"
-    t.float "star"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string "name"
+    t.integer "spot_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

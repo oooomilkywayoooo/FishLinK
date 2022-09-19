@@ -1,8 +1,16 @@
 <div class="container mx-auto">
-<div class="top">
+  <div class="top">
+  </div>
+  <div class="row">
+    <div class="col-md-4 main">
+      <div class="weather">
+        <h3>〇天気予報</h3>
+        <%= select_tag 'select', options_for_select(
+          Spot.all.map{ |spot| [spot.name, spot.id]}
+          ),id: "wheather-select", class: "ml-3" %>
+        <div id="weather"></div>
 
-</div>
-  <div class="main">
-    <h3>〇釣りに行きたい日</h3>
+      </div>
+    </div>
   </div>
 </div>
