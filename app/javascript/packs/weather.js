@@ -1,23 +1,26 @@
-$(function () {
-  const spot_id = gon.spot.spot_id
-  const key = gon.api
-  // 天気予報を取得
-  const weather_url = 'http://api.openweathermap.org/data/2.5/forecast?id='+ spot_id +'&appid=' + key;
-  $.ajax({
+  /*global $*/
+  /*global gon*/
+  $(function () {
+  const API_KEY = gon.api
+  var selectedValue = $("#wheather-select").val(spot_id);
+  const weather_url = 'http://api.openweathermap.org/data/2.5/forecast?id=' + selectedValue + '&appid=' + API_KEY;
+
+    $.ajax({
       url: weather_url,
       dataType: 'json',
       type: 'GET',
-    })
-  .done(function (weather) {
+      })
+    .done(function (weather) {
     let insertHTML = '';
     for (let i = 0; i <= 1; i = i + 1) {
       insertHTML += buildHTML(weather, i);
     }
     $('#weather').html(insertHTML);
-  })
-  .fail(function (weather) {
+    })
+    .fail(function (weather) {
     alert('天気予報の取得に失敗しました');
-  });
+    });
+  }
 });
 
 // 日本語で表示

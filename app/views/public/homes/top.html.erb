@@ -4,12 +4,12 @@
   <div class="row">
     <div class="col-md-4 main">
       <div class="weather">
-        <h3>〇天気予報</h3>
-        <%= select_tag 'select', options_for_select(
-          Spot.all.map{ |spot| [spot.name, spot.id]}
-          ),id: "wheather-select", class: "ml-3" %>
+        <h3>〇天気</h3>
+          <%= select_tag :spot_id, options_for_select(
+            Spot.all.map{ |spot| [spot.name, spot.spot_id] }, 1),
+            id: "wheather-select", class: "ml-3" %>
         <div id="weather"></div>
-
+        <%= javascript_pack_tag 'weather' %>
       </div>
     </div>
   </div>
