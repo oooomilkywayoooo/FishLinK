@@ -2,8 +2,18 @@
   /*global gon*/
   $(function () {
   const API_KEY = gon.api
-  var selectedValue = $("#wheather-select").val(spot_id);
-  const weather_url = 'http://api.openweathermap.org/data/2.5/forecast?id=' + selectedValue + '&appid=' + API_KEY;
+
+  window.onload = function() {
+    weather_search()
+    };
+
+  const wheather_select = document.querySelector('#wheather-select');
+  const options = document.querySelectorAll("#wheather-select option");
+  const weather_search = function () {
+
+    const index =  this.selectedIndex;
+    const spot_id = index ?　options[index].value : wheather_select.value
+    const weather_url = 'https://api.openweathermap.org/data/2.5//forecast?id=' + spot_id + '&appid=' + API_KEY;
 
     $.ajax({
       url: weather_url,
@@ -26,7 +36,7 @@
 // 日本語で表示
 function buildHTML(weather, i) {
   //日付、時間を取得（Dateがミリ秒なので1000倍が必要）
-  const date = new Date(weather.daily[i].dt * 1000);
+  const date = new Date(weather.list[i].dt * 1000);
   //UTCとの時差を無くす(日本は-9時間のため9を足す)
   date.setHours(date.getHours() + 9);
   //月を取得。getMonth()は0~11を返すため1を足すことによって1月~12月を返すように設定
@@ -36,9 +46,9 @@ function buildHTML(weather, i) {
   //月＋日＋曜日をdayに代入。getDay()は0~6を返すためWeek配列内のインデックスに対応した文字列を取得
   const day = month + '/' + date.getDate() + Week[date.getDay()];
   //天気のアイコンを取得
-  const icon = weather.daily[i].weather[0].icon;
+  const icon = weather.list[i].weather[0].icon;
   //風速を取得
-  const wind_speed = Math.floor(weather.hourly[i].wind_speed * 10) / 10;
+  const wind_speed = Math.floor(weather.list[i].wind_speed * 10) / 10;
   //風向（角度）を取得し方角表記へ変換
   const get_deg_string = function(wind_deg) {
     let r = '北';
@@ -59,7 +69,7 @@ function buildHTML(weather, i) {
     if (wind_deg>=326.25) r = '北北西';
     return r + '風';
   };
-  const wind_deg = get_deg_string(weather.hourly[i].wind_deg);
+  const wind_deg = get_deg_string(weather.list[i].wind_deg);
 
   const html =
     '<div class="weather__content--report">' +
