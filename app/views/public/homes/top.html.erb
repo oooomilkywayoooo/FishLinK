@@ -2,15 +2,37 @@
   <div class="top">
   </div>
   <div class="row">
-    <div class="col-md-4 main">
+    <div class="col-md-12 mx-auto main">
       <div class="weather">
-        <h3>〇天気</h3>
+        <h3><i class="fa-solid fa-sun"></i> ３時間ごとの天気</h3>
           <%= select_tag :spot_id, options_for_select(
             Spot.all.map{ |spot| [spot.name, spot.spot_id] }, 1),
-            id: "wheather-select", class: "ml-3" %>
-        <div id="weather"></div>
+            id: "wheather-select", class: "ml-5 mt-3" %>
+        <div id="weather" class="text-center"></div>
         <%= javascript_pack_tag 'weather' %>
       </div>
+    </div>
+    <div class="col-md-12 mx-auto">
+      <h3><i class="fa-solid fa-fish"></i> 新着釣果</h3>
+      <% @posts.each do |post| %>
+        <div class="card ml-3 my-2" style="width: 250px;">
+          <%= image_tag post.postimage, size: "250x150" %>
+          <div class="card-body">
+            <% if post.user.profile_image.attached? %>
+              <%= image_tag post.user.profile_image, size: "50x50", class: "userradius" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "50x50", class: "userradius" %>
+            <% end %>
+            <%= link_to post.title, post_path(post), class: "ml-3" %>
+            <div class="text-right d-flex">
+              <h6><%= link_to post.user.nickname, user_path(post.user_id) %></h6>
+                <p class="ml-5"><i class="fa-solid fa-comment-dots"></i><%= post.comments.count %></p>
+                <p class="ml-3"><i class="fa-solid fa-thumbs-up"></i><%= post.goods.count %></p>
+            </div>
+            <p class="text-right"><%= post.created_at.strftime('%Y/%m/%d') %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
