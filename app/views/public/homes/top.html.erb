@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-12 mx-auto main">
       <div class="weather">
-        <h3><i class="fa-solid fa-sun"></i> ３時間ごとの天気</h3>
+        <h3><i class="fa-solid fa-sun"></i> 12時間ごとの天気</h3>
           <%= select_tag :spot_id, options_for_select(
             Spot.all.map{ |spot| [spot.name, spot.spot_id] }, 1),
             id: "wheather-select", class: "ml-5 mt-3" %>
@@ -13,9 +13,9 @@
       </div>
     </div>
     <div class="col-md-12 mx-auto">
-      <h3><i class="fa-solid fa-fish"></i> 新着釣果</h3>
+      <h3 class="mt-3"><i class="fa-solid fa-fish"></i> 新着釣果</h3>
       <% @posts.each do |post| %>
-        <div class="card ml-3 my-2" style="width: 250px;">
+        <div class="card ml-3 mt-3 mb-5" style="width: 250px;">
           <%= image_tag post.postimage, size: "250x150" %>
           <div class="card-body">
             <% if post.user.profile_image.attached? %>

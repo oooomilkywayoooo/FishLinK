@@ -13,7 +13,7 @@
 
     const index =  this.selectedIndex;
     const spot_id = index ?　options[index].value : wheather_select.value
-    const weather_url = 'https://api.openweathermap.org/data/2.5//forecast?id=' + spot_id + '&units=metric&cnt=9&appid=' + API_KEY;
+    const weather_url = 'https://api.openweathermap.org/data/2.5//forecast?id=' + spot_id + '&appid=' + API_KEY;
 
     wheather_select.addEventListener('change', weather_search);
 
@@ -24,8 +24,8 @@
       })
     .done(function (weather) {
     let insertHTML = '';
-    // 0から4まで計5回繰り返す
-    for (let i = 0; i <= 8; i = i + 1) {
+    // 0から8まで計9回繰り返す
+    for (let i = 0; i <= 28; i = i + 4) {
       insertHTML += buildHTML(weather, i);
     }
     $('#weather').html(insertHTML);

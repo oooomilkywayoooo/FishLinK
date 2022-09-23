@@ -22,20 +22,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <li class="nav-item active font-weight-bold"><%= link_to 'User', admin_users_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Article', admin_posts_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Review', admin_reviews_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Log out', destroy_admin_session_path, method: :delete, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item active font-weight-bold"><%= link_to '会員一覧', admin_users_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to '釣果一覧', admin_posts_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to 'レビュー一覧', admin_reviews_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
             <% elsif user_signed_in? %>
-              <li class="nav-item active font-weight-bold"><%= link_to 'My page', user_path(current_user), class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Article', posts_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Favorite', favorites_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item active font-weight-bold"><%= link_to 'マイページ', user_path(current_user), class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to '釣果一覧', posts_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to 'お気に入り', favorites_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
             <% else %>
-              <li class="nav-item active font-weight-bold"><%= link_to 'About', "/about", class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Article', posts_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Sign up', new_user_registration_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
-              <li class="nav-item font-weight-bold"><%= link_to 'Log in', new_user_session_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item active font-weight-bold"><%= link_to 'FishLinKとは？', "/about", class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to '釣果一覧', posts_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to '新規登録', new_user_registration_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
+              <li class="nav-item font-weight-bold"><%= link_to 'ログイン', new_user_session_path, class: 'mr-5 px-3 nav-link text-light border-left' %></li>
             <% end %>
           </ul><br>
 
