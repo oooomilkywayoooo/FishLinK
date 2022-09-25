@@ -112,11 +112,17 @@ footer{
     bottom: 0; /*下に固定*/
 }
 
+
 .table > thead > tr > th{
     border-top:5px solid #FFCCCC;
-    border-bottom:1px solid #FFCCCC;
+    border-bottom:2px solid #FFCCCC;
 }
-.table > tbody > tr > td{
-    border-top:1px solid #FFCCCC;
-    border-bottom:1px solid #FFCCCC;
+
+.table th, td{
+    border-top:5px solid #FFCCCC;
+    border-bottom:2px solid #FFCCCC;
+}
+
+.about{
+    padding-top: 200px;
 }

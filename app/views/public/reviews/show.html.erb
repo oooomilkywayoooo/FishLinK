@@ -24,16 +24,16 @@
   </div>
 
   <div class="row mt-5">
-    <div class="col-md-3">
-      <h5 class="review_title text-center">
-        <i class="fa-solid fa-fish"></i>　<%= @review.title %>
+    <div class="col-md-4">
+      <h5 class="text-center">
+        <p class="h3 review_title"><i class="fa-solid fa-fish"></i> <%= @review.title %></p>
       </h5>
     </div>
   </div>
 
   <div class="row mt-5 mb-3">
     <div class="col-md-10 mx-auto review_text">
-      <h6><%= @review.body %></h6>
+      <h5 class="mt-3"><%= h(@review.body).gsub(/\n|\r|\r\n/, "<br>").html_safe %></h5>
     </div>
   </div>
 

@@ -17,7 +17,7 @@
     </div>
     <div class="col-md-12 mx-auto flexbox">
       <% @posts.each do |post| %>
-        <div class="card ml-3 mt-3 mb-5" style="width: 250px;">
+        <div class="card ml-3 mt-3 mb-2" style="width: 250px;">
           <%= image_tag post.postimage, size: "250x150" %>
           <div class="card-body">
             <% if post.user.profile_image.attached? %>
@@ -34,6 +34,11 @@
             <p class="text-right"><%= post.created_at.strftime('%Y/%m/%d') %></p>
           </div>
         </div>
+      <% end %>
+    </div>
+    <div class="col-md-12 text-right mb-5">
+      <%= link_to posts_path do %>
+        <i class="fa-solid fa-angles-right"></i> もっと見る
       <% end %>
     </div>
   </div>

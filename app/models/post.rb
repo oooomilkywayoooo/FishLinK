@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :title, presence: true, length: { maximum: 40 }, obscenity: { message: 'はNGワードになっています' }
-  validates :body, presence: true, length: { maximum: 200 }, obscenity: { sanitize: true }
+  validates :title, presence: true
+  validates :body, presence: true
 
   def gooded?(user)
    goods.where(user_id: user.id).exists?
