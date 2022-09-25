@@ -32,7 +32,7 @@
   border-radius: 50%;
 }
 
-// 奇数のコメント吹き出し
+// ログインユーザーのコメント吹き出し
 .odd {
   float: left;
   position: relative;
@@ -55,7 +55,7 @@
   transform: rotate(35deg);
 }
 
-// 偶数のコメント吹き出し
+// ログインユーザー以外のコメント吹き出し
 .even {
   float: right;
   position: relative;

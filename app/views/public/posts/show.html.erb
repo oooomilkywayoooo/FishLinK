@@ -19,6 +19,7 @@
   <div class="row">
     <div class="col-md-7 mx-auto mt-5">
       <p class="h3 post_title"><i class="fa-solid fa-fish"></i> <%= @post.title %></p>
+      <!--投稿時の改行をViewに-->
       <p class="h5 ml-3 mt-4"><%= h(@post.body).gsub(/\n|\r|\r\n/, "<br>").html_safe %></p>
     </div>
   </div>
