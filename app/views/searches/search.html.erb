@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 mx-auto mt-5">
-      <h2>Results index</h2>
+      <h2>検索結果</h2>
 
       <table class="table table-hover table-inverse">
         <!--検索対象モデルがUserの時 -->
@@ -24,12 +24,16 @@
                   <% end %>
                 </td>
                 <td class="align-middle"><%= user.nickname %></td>
-                <td class="text-center"><%= link_to 'Show', user_path(user), class: "btn btn-outline-primary" %></td>
+                <% if user_signed_in? %>
+                  <td class="text-center"><%= link_to 'Show', user_path(user), class: "btn btn-outline-primary" %></td>
+                <% else %>
+                  <td class="text-center"><%= link_to 'Show', admin_user_path(user), class: "btn btn-outline-primary" %></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
         <% else %>
-          <!--検索対象モデルがUserではない時(= 検索対象モデルがBookの時) -->
+          <!--検索対象モデルがUserではない時(= 検索対象モデルがPostの時) -->
           <thead>
             <tr>
               <th>Title</th>
@@ -42,7 +46,11 @@
               <tr>
                 <td><%= post.title %></td>
                 <td><%= post.body %></td>
-                <td class="text-center"><%= link_to 'Show', post_path(post), class: "btn btn-outline-primary" %></td>
+                <% if user_signed_in? %>
+                  <td class="text-center"><%= link_to 'Show', post_path(post), class: "btn btn-outline-primary" %></td>
+                <% else %>
+                  <td class="text-center"><%= link_to 'Show', admin_post_path(post), class: "btn btn-outline-primary" %></td>
+                <% end %>
               </tr>
             <% end %>
           </tbody>
