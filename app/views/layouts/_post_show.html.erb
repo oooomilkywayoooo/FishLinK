@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="userinfo d-flex">
+      <% if post.user.profile_image.attached? %>
+        <%= image_tag post.user.profile_image, size: "150x150", class: "userradius mt-5" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "150x150", class: "userradius mt-5" %>
+      <% end %>
+      <p class="h5 d-flex align-items-end"><strong><%= post.user.nickname %></strong></p>
+    </div>
+  </div>
+
+  <div class="col-md-6"></div>
+
+  <div class="col-md-3 d-flex align-items-end">
+    <%= post.created_at.strftime('%Y/%m/%d') %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-7 mx-auto mt-5">
+    <p class="h3 post_title"><i class="fa-solid fa-fish"></i> <%= post.title %></p>
+    <!--投稿時の改行をViewに-->
+    <p class="h5 ml-3 mt-4"><%= h(post.body).gsub(/\n|\r|\r\n/, "<br>").html_safe %></p>
+  </div>
+</div>
+
+<div class="row mx-auto">
+  <div class="col-md-7 mx-auto mt-5">
+    <%= image_tag post.postimage, size: "500x300" %>
+  </div>
+</div>

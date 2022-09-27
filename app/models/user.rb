@@ -10,8 +10,9 @@ class User < ApplicationRecord
   has_many :goods, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
-  validates :nickname, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true, length: { in: 2..8 }
   validates :email, presence: true
+  validates :sex, presence: true
 
   def active_for_authentication?
     super && (is_active == true)

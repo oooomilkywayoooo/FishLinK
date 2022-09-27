@@ -20,16 +20,21 @@
 	display: flex;
 	border: 2px solid lightgrey;
 	width: 200px;
+	position: relative;
 }
 
-.form-input{
+.form-box input{
 	border: none;
 	width: 100%;
 }
 
-.form-button{
+.form-box button{
 	background-color: white;
 	border: none;
+	align: right;
+	position: absolute;
+    top: 0;
+    right: 0;
 }
 /*検索バーCSS終わり*/
 // フォントの設定
@@ -125,4 +130,8 @@ footer{
 .flexbox{
   display: flex;
   flex-wrap: wrap;
+}
+
+.search-button{
+    text-align: right;
 }
