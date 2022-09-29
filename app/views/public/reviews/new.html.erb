@@ -1,29 +1,28 @@
 <div class="wrapper">
   <div class="container" style="width:600px;">
     <div id="review">
-      <h2 class="text-primary pt-5">NEW Review</h2>
+      <h2 class="text-primary pt-5">釣具レビュー</h2>
     </div>
 
-    <%= render 'layouts/error_messages', :object => @review %>
-
     <%= form_with model: @review do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="field mt-5 mx-auto" style="width:400px;">
-      <span class="review"><%= f.label :"Image" %></span><br />
+      <span class="review"><%= f.label :"商品画像" %></span><br />
       <%= f.file_field :reviewimage, accept: "image/*" %>
     </div>
 
     <div class="field mt-5 mx-auto" style="width:400px;">
-      <span class="review"><%= f.label :"Title" %></span><br />
+      <span class="review"><%= f.label :"タイトル" %></span><br />
       <%= f.text_field :title, class: "form-control" %>
     </div>
 
     <div class="field mt-5 mx-auto" style="width:400px;">
-      <span class="review"><%= f.label :"Item Name" %></span><br />
+      <span class="review"><%= f.label :"商品名" %></span><br />
       <%= f.text_field :item, class: "form-control" %>
     </div>
 
     <div class="field mt-5 mx-auto" style="width:400px;">
-      <span class="review"><%= f.label :"Body" %></span><br />
+      <span class="review"><%= f.label :"評価内容" %></span><br />
       <%= f.text_area :body, class: "form-control", rows: "5" %>
     </div>
 

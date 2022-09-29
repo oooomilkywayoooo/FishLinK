@@ -3,9 +3,9 @@
     <div id="article">
       <h2 class="text-success pt-5">釣果投稿</h2>
     </div>
-    <%= render 'layouts/error_messages', :object => @post %>
 
     <%= form_with model: @post do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="field mt-5 mx-auto" style="width:400px;">
       <span class="article"><%= f.label :"Image" %></span><br />
       <%= f.file_field :postimage, accept: "image/*" %>

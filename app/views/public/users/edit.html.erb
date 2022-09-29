@@ -2,9 +2,9 @@
   <div id="useredit">
     <h2 class="useredit pt-5">Edit</h2>
   </div>
-  <%= render 'layouts/error_messages', :object => @user %>
 
   <%= form_with model: @user, url: user_path(@user.id), method: :patch do |f|%>
+  <%= render 'layouts/error_messages', model: f.object %>
     <div class="field mt-5 mx-auto" style="width:400px;">
       <span class="useredit"><%= f.label :"ニックネーム" %></span><br />
       <%= f.text_field :nickname, class: "form-control" %>

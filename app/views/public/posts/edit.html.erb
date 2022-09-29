@@ -1,11 +1,11 @@
 <div class="wrapper">
   <div class="container" style="width:600px;">
     <div id="article">
-      <h2 class="text-success mt-5">Edit Article</h2>
+      <h2 class="text-success pt-5">釣果投稿編集</h2>
     </div>
-    <%= render 'layouts/error_messages', :object => @post %>
 
     <%= form_with model: @post, url: post_path(@post.id), method: :patch do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="field mt-5 mx-auto" style="width:400px;">
       <span class="article"><%= f.label :"Image" %></span><br />
       <%= f.file_field :postimage, accept: "image/*" %>

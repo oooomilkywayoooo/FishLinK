@@ -54,7 +54,7 @@
         </div>
         <div class="col-md-8">
           <div class="odd mb-3">
-            <p><%= comment.comment %></p>
+            <p><%= h(comment.comment).gsub(/\n|\r|\r\n/, "<br>").html_safe %></p>
             <span><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
             <% if comment.user == current_user %>
               <p class="text-right"><%= link_to "delete", post_comment_path(@post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
@@ -66,7 +66,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="even mb-3">
-          <p><%= comment.comment %></p>
+          <p><%= h(comment.comment).gsub(/\n|\r|\r\n/, "<br>").html_safe %></p>
           <span><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
           <% if comment.user == current_user %>
             <p class="text-right"><%= link_to "delete", post_comment_path(@post, comment), method: :delete, "data-confirm" => "本当に削除しますか？" %></p>
