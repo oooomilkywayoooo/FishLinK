@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
    before_action :authenticate_user!, except: [:index]
+   before_action :set_post, only: [:edit, :update, :show]
 
   def index
     @posts = Post.all.page(params[:page]).per(12)
@@ -20,12 +21,9 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
-
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to post_path(@post.id)
     else
@@ -40,7 +38,6 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @comment = Comment.new
     @comments = Comment.where(post_id: @post.id)
   end
@@ -48,5 +45,9 @@ class Public::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:postimage, :title, :body)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

@@ -1,8 +1,6 @@
 <div class="container mx-auto">
   <div class="row">
 
-    <%= render 'layouts/error_messages', :object => @user %>
-
     <div class="col-md-10 mx-auto mt-5">
       <% if @user.profile_image.attached? %>
         <%= image_tag @user.profile_image, size: "150x150", class: "userradius" %>
@@ -44,6 +42,7 @@
     <div class="col-md-6 mx-auto mt-5">
       <h5>ステータス変更</h5>
       <%= form_with model: @user, url: admin_user_path(@user.id) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
         <h5 class="ml-4 mt-3">
           <%= f.radio_button :is_active, true%>
           <%= f.label :is_active, "利用中", value: true, class: "text-success" %>
