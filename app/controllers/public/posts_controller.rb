@@ -1,5 +1,6 @@
 class Public::PostsController < ApplicationController
    before_action :authenticate_user!, except: [:index]
+   before_action :correct_post,only: [:edit]
    before_action :set_post, only: [:edit, :update, :show]
 
   def index

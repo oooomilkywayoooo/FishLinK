@@ -1,5 +1,6 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_post,only: [:edit]
   before_action :set_user, only: [:show, :edit, :update]
 
   def show
