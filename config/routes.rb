@@ -1,23 +1,22 @@
 Rails.application.routes.draw do
-
-  devise_for :users,skip: [:passwords], controllers: {
+  devise_for :users, skip: [:passwords], controllers: {
     registrations: "public/registrations",
-    sessions: 'public/sessions'
+    sessions: "public/sessions"
   }
 
   devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+    post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
 
-  devise_for :admin,skip: [:registrations, :passwords], controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  get '/' => 'public/homes#top'
-  get '/about' => 'public/homes#about'
-  get 'search' => 'searches#search'
+  get "/" => "public/homes#top"
+  get "/about" => "public/homes#about"
+  get "search" => "searches#search"
   resources :spots, only: [:create]
 
   scope module: :public do
@@ -29,8 +28,8 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
     end
     resources :users, only: [:show, :edit, :update] do
-        get '/quit' => 'users#quit'
-        patch '/out' => 'users#out'
+      get "/quit" => "users#quit"
+      patch "/out" => "users#out"
     end
   end
 

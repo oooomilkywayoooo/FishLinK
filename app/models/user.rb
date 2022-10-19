@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+    find_or_create_by!(email: "guest@example.com") do |user|
       user.password = SecureRandom.urlsafe_base64
       user.nickname = "ゲスト"
       user.birthdate = Date.today
@@ -32,11 +32,11 @@ class User < ApplicationRecord
     if search == "perfect_match"
       @user = User.where("nickname LIKE?", "#{word}")
     elsif search == "forward_match"
-      @user = User.where("nickname LIKE?","#{word}%")
+      @user = User.where("nickname LIKE?", "#{word}%")
     elsif search == "backward_match"
-      @user = User.where("nickname LIKE?","%#{word}")
+      @user = User.where("nickname LIKE?", "%#{word}")
     elsif search == "partial_match"
-      @user = User.where("nickname LIKE?","%#{word}%")
+      @user = User.where("nickname LIKE?", "%#{word}%")
     else
       @user = User.all
     end

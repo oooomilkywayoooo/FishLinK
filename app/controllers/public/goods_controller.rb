@@ -1,5 +1,4 @@
 class Public::GoodsController < ApplicationController
-
   def create
     @good = Good.new(user_id: current_user.id, post_id: params[:post_id])
     @good.save

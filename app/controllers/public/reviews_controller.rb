@@ -1,5 +1,4 @@
 class Public::ReviewsController < ApplicationController
-
   def new
     @review = Review.new
   end
@@ -10,7 +9,7 @@ class Public::ReviewsController < ApplicationController
     if @review.save
       redirect_to review_path(@review)
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -25,8 +24,7 @@ class Public::ReviewsController < ApplicationController
   end
 
   private
-
-  def review_params
-    params.require(:review).permit(:reviewimage, :title, :body, :item)
-  end
+    def review_params
+      params.require(:review).permit(:reviewimage, :title, :body, :item)
+    end
 end

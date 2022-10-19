@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
-   before_action :authenticate_user!, except: [:index]
-   before_action :correct_post,only: [:edit]
-   before_action :set_post, only: [:edit, :update, :show]
+  before_action :authenticate_user!, except: [:index]
+  before_action :correct_post, only: [:edit]
+  before_action :set_post, only: [:edit, :update, :show]
 
   def index
     @posts = Post.all.page(params[:page]).per(12)
@@ -44,11 +44,11 @@ class Public::PostsController < ApplicationController
   end
 
   private
-  def post_params
-    params.require(:post).permit(:postimage, :title, :body)
-  end
+    def post_params
+      params.require(:post).permit(:postimage, :title, :body)
+    end
 
-  def set_post
-    @post = Post.find(params[:id])
-  end
+    def set_post
+      @post = Post.find(params[:id])
+    end
 end
