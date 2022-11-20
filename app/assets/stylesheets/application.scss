@@ -157,27 +157,6 @@ footer{
   background-image: url(slide4.jpg);
 }
 
-@media screen and (max-width: 768px) {
-  .top{
-    width: 100%;
-    background-image: image-url('welikefish-small.png');
-    background-size: cover;
-  }
-
-  #weather {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 30px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .top{
-    width: 100%;
-    background-image: image-url('welikefish-small.png');
-    background-size: cover;
-  }
-
   #weather {
     display: flex;
     flex-wrap: wrap;
