@@ -85,3 +85,19 @@
 #post_postimage{
   width: 300px;
 }
+
+#article-card{
+  margin: 10px 5px;
+}
+
+@media screen and (max-width: 768px) {
+  #article-card{
+    margin: 10px auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #article-card{
+    margin: 10px auto;
+  }
+}

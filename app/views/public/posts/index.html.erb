@@ -1,9 +1,9 @@
 <div class="container mx-auto">
   <h1 class="user pt-5">釣果一覧</h1>
   <div class="row">
-    <div class="col-md-12 flexbox">
+    <div class="col-md-12 mx-auto flexbox">
       <% @posts.each do |post| %>
-        <div class="card ml-3 my-2" style="width: 250px;">
+        <div class="card" id="article-card" style="width: 250px;">
           <%= image_tag post.postimage, size: "250x150" %>
           <div class="card-body" style="width: 250px;">
             <% if post.user.profile_image.attached? %>
