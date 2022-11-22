@@ -50,6 +50,14 @@ header{
     background-color: lightblue;
 }
 
+#sign_up{
+  max-width: 600px;
+}
+
+.sign_up{
+  max-width: 400px;
+}
+
 #userlogin{
     border-bottom: solid 5px #66CCCC;
 }
@@ -213,5 +221,14 @@ footer{
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 30px 0 30px 30px;
+  }
+  #user_birthdate_1i{
+    width: 110px;
+  }
+  #user_birthdate_2i{
+    width: 110px;
+  }
+  #user_birthdate_3i{
+    width: 110px;
   }
 }
