@@ -1,14 +1,14 @@
-<div class="container" style="width:600px;">
+<div class="container" id="sign_in">
   <div id="userlogin">
     <h2 class="userlogin pt-5">Log in</h2>
   </div>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field mt-5 mx-auto" style="width:400px;">
+  <div class="sign_in field mt-5 mx-auto">
     <span class="userlogin"><%= f.label :email %></span><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <div class="field mt-5 mx-auto" style="width:400px;">
+  <div class="sign_in field mt-5 mx-auto">
     <span class="userlogin"><%= f.label :パスワード %></span><br />
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
   </div>
@@ -20,7 +20,7 @@
   </div>
   <% end %>
 
-  <div class="actions mt-5 mx-auto text-center" style="width:400px;">
+  <div class="sign_in actions mt-5 mx-auto text-center">
     <%= f.submit "Log in", class: "userlogin-btn px-4 py-3" %>
   </div>
   <% end %>

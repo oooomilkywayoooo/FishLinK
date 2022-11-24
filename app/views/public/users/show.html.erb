@@ -45,7 +45,7 @@
       <% end %>
       <div class="flexbox mx-auto">
         <% @posts.each do |post| %>
-        <div class="card ml-3 mt-2" style="width: 250px;">
+        <div class="card" id="user-card" style="width: 250px;">
           <%= image_tag post.postimage, size: "250x150" %>
           <div class="card-body">
             <%= link_to post.title, post_path(post) %>
