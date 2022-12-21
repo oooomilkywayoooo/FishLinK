@@ -43,8 +43,8 @@
 
   <% @comments.each do |comment| %>
     <% if comment.user.id == current_user.id %>
-      <div class="row justify-content-center">
-        <div class="col-md-2 text-center">
+      <div class="row justify-content-center myballoon">
+        <div class="col-md-2 text-center myfaceicon">
           <% if comment.user.profile_image.attached? %>
             <%= image_tag comment.user.profile_image, size: "100x100", class: "userradius" %>
           <% else %>
@@ -52,8 +52,8 @@
           <% end %>
           <p class="h6"><strong><%= comment.user.nickname %></strong></p>
         </div>
-        <div class="col-md-8">
-          <div class="odd mb-3">
+        <div class="col-md-8 chatting">
+          <div class="odd mb-3 mysays">
             <p><%= h(comment.comment).gsub(/\n|\r|\r\n/, "<br>").html_safe %></p>
             <span><%= comment.created_at.strftime('%Y/%m/%d %H:%M:%S')%></span>
             <% if comment.user == current_user %>
