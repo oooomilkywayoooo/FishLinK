@@ -10,7 +10,7 @@
   <div class="row">
     <div class="col-md-12 mx-auto main">
       <div class="weather">
-        <h3 class="col-md-4 topweather"><i class="fa-solid fa-sun"></i> 12時間ごとの天気</h3>
+        <h3 class="topweather"><i class="fa-solid fa-sun"></i> 12時間ごとの天気</h3>
           <%= select_tag :spot_id, options_for_select(
             Spot.all.map{ |spot| [spot.name, spot.spot_id] }, 1),
             id: "wheather-select", class: "ml-5 mt-3" %>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="col-md-12 mx-auto">
-      <h3 class="col-md-4 mt-3 topnew"><i class="fa-solid fa-fish"></i> 新着釣果</h3>
+      <h3 class="mt-3 topnew"><i class="fa-solid fa-fish"></i> 新着釣果</h3>
     </div>
     <div class="col-md-12 mx-auto flexbox">
       <% @posts.each do |post| %>
