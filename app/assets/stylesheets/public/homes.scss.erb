@@ -41,6 +41,32 @@
   margin: 10px 5px;
 }
 
+.topweather {
+  position: relative;
+  padding: 0.25em 0;
+}
+
+.topweather:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(255, 186, 115), #ffb2b2);
+  background: linear-gradient(to right, rgb(255, 186, 115), #ffb2b2);
+}
+
+.topnew {
+  position: relative;
+  padding: 0.25em 0;
+}
+
+.topnew:after {
+  content: "";
+  display: block;
+  height: 4px;
+  background: -webkit-linear-gradient(to right, rgb(178, 191, 255), #b6ffb2);
+  background: linear-gradient(to right, rgb(178, 191, 255), #b6ffb2);
+}
+
 @media screen and (max-width: 768px) {
   #new-card{
     margin: 10px auto;
